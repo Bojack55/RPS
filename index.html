@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<body>
+    <script>
+        function compchoice() {
+            let random_val=Math.random()
+            let comp;
+            if(random_val>=0 && random_val<0.3){
+                comp="ROCK";
+            }
+            else if (random_val>=0.3 && random_val<0.7){
+                comp="PAPER";
+            }
+            else if (random_val>=0.7 && random_val<1){
+                comp="SCISSORS"
+            }
+            return comp;
+        }
+        function humanchoice() {
+            let human = prompt("enter your choice (ROCK,PAPER OR SCISSORS)")
+             human =human.toUpperCase();
+             return human
+        }
+        function playgame() {
+            let humanscore=0;
+            let computerscore=0;
+            for(let i=0 ; i<5 ; i++){
+                let human=humanchoice();
+                let comp=compchoice();
+                console.log(`Computer chose: ${comp}`);
+                    if (human==comp){
+                        console.log("It is a tie!");
+                    }
+                    else if(
+                        (human === "ROCK" && comp === "SCISSORS")||
+                        (human === "PAPER" && comp === "ROCK")||
+                        (human === "SCISSORS" && comp === "PAPER")
+                    ){
+                        console.log("YOU WIN!");
+                        humanscore++;
+                    }
+                    else{
+                        console.log("COMPUTER WON");
+                        computerscore++;}
+                }
+          if (computerscore > humanscore) {
+                console.log(`YOU LOST THE GAME! Final Score: Human ${humanscore} - Computer ${computerscore}`);
+        } else if (humanscore > computerscore) {
+                console.log(`YOU WON THE GAME! Final Score: Human ${humanscore} - Computer ${computerscore}`);
+        } else {
+                console.log(`IT'S A TIE! Final Score: Human ${humanscore} - Computer ${computerscore}`);
+        }
+    }
+        playgame()
+    </script>
+</body>
